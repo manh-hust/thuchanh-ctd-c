@@ -1,0 +1,4 @@
+Program Example1; (* Example 1 *)
+Begin
+"hello con chim nho nho hom nay la"
+End. (* Example 1 *)
