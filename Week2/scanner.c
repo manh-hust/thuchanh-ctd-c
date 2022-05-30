@@ -59,7 +59,7 @@ void skipComment()
 Token *readIdentKeyword(void)
 {
   // TODO
-  char word[MAX_STRING_LEN + 1];
+  char word[MAX_IDENT_LEN + 1];
   int i = 0;
   int ln = lineNo;
   int cn = colNo;
@@ -138,7 +138,7 @@ Token *readConstString(void)
   int cn = colNo;
 
   Token *token;
-  char string[MAX_STRING_LEN + 1];
+  char string[MAX_IDENT_LEN + 1];
   int i = 0;
   readChar();
 
