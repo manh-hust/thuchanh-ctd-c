@@ -64,7 +64,6 @@ char *tokenToString(TokenType tokenType) {
   case TK_IDENT: return "an identification";
   case TK_NUMBER: return "a number";
   case TK_CHAR: return "a constant char";
-  case TK_STRING: return "a string";
   case TK_EOF: return "end of file";
 
   case KW_PROGRAM: return "keyword PROGRAM";

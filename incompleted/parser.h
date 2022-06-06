@@ -54,7 +54,6 @@ void compileTerm(void);
 void compileTerm2(void);
 void compileFactor(void);
 void compileIndexes(void);
-void compileExpression9(void);
 
 int compile(char *fileName);
 

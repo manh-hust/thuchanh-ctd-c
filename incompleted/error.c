@@ -16,12 +16,6 @@ void error(ErrorCode err, int lineNo, int colNo) {
   case ERR_IDENTTOOLONG:
     printf("%d-%d:%s\n", lineNo, colNo, ERM_IDENTTOOLONG);
     break;
-  case ERR_STRINGTOOLONG:
-    printf("%d-%d:%s\n", lineNo, colNo, ERM_STRINGTOOLONG);
-    break;
-  case ERR_ENDOFSTRING:
-    printf("%d-%d:%s\n", lineNo, colNo, ERM_ENDOFSTRING);
-    break;
   case ERR_INVALIDCHARCONSTANT:
     printf("%d-%d:%s\n", lineNo, colNo, ERM_INVALIDCHARCONSTANT);
     break;

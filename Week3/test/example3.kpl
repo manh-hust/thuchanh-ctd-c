@@ -16,7 +16,7 @@ BEGIN
       CALL  WRITEI(N);
       CALL  WRITEI(S);  
       CALL  WRITEI(Z);
-      CALL  HANOI(N-1,6-S-Z,Z)
+      CALL  HANOI(N-1,6-S-Z,Z);
     END
 END;  (*END OF HANOI*)
 
@@ -26,7 +26,7 @@ BEGIN
       FOR  I:=1  TO  4  DO  
         CALL  WRITEC(' ');
       CALL  READC(C);  
-      CALL  WRITEC(C)
+      CALL  WRITEC(C);
     END;
   P:=1;  
   Q:=2;

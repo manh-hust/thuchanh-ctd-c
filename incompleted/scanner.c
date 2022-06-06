@@ -118,36 +118,6 @@ Token* readConstChar(void) {
   }
 }
 
-Token* readString(void) {
-  Token* token = makeToken(TK_STRING, lineNo, colNo);
-
-  readChar();
-
-  int count = 0;
-  while (currentChar != EOF && charCodes[currentChar] != CHAR_DOUBLEQUOTE) {
-
-    if (count <= MAX_STRING_LEN) token->string[count++] = (char) currentChar;
-    readChar();
-  }
-
-  if (count > MAX_STRING_LEN) {
-    token->tokenType = TK_NONE;
-    error(ERR_STRINGTOOLONG, token->lineNo, token->colNo);
-    return token;
-  }
-
-  token->string[count] = '\0';
-
-  if (charCodes[currentChar] == CHAR_DOUBLEQUOTE) {
-    readChar();
-    return token;
-  } else {
-    token->tokenType = TK_NONE;
-    error(ERR_ENDOFSTRING, lineNo, colNo);
-    return token;
-  }
-}
-
 Token* getToken(void) {
   Token *token;
   int ln, cn;
@@ -256,7 +226,6 @@ Token* getToken(void) {
       return makeToken(SB_ASSIGN, ln, cn);
     } else return makeToken(SB_COLON, ln, cn);
   case CHAR_SINGLEQUOTE: return readConstChar();
-  case CHAR_DOUBLEQUOTE: return readString();
   case CHAR_LPAR:
     ln = lineNo;
     cn = colNo;
@@ -314,7 +283,6 @@ void printToken(Token *token) {
   case TK_IDENT: printf("TK_IDENT(%s)\n", token->string); break;
   case TK_NUMBER: printf("TK_NUMBER(%s)\n", token->string); break;
   case TK_CHAR: printf("TK_CHAR(\'%s\')\n", token->string); break;
-  case TK_STRING: printf("TK_STRING(\"%s\")\n", token->string); break;
   case TK_EOF: printf("TK_EOF\n"); break;
 
   case KW_PROGRAM: printf("KW_PROGRAM\n"); break;

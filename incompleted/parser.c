@@ -332,19 +332,19 @@ void compileAssignSt(void) {
     break;
   case SB_ASSIGN_PLUS:
     eat(SB_ASSIGN_PLUS);
-    compileExpression9();
+    compileExpression();
     break;
   case SB_ASSIGN_SUBTRACT:
     eat(SB_ASSIGN_SUBTRACT);
-    compileExpression9();
+    compileExpression();
     break;
   case SB_ASSIGN_TIMES:
     eat(SB_ASSIGN_TIMES);
-    compileExpression9();
+    compileExpression();
     break;
   case SB_ASSIGN_DIVIDE:
     eat(SB_ASSIGN_DIVIDE);
-    compileExpression9();
+    compileExpression();
     break;
   default:
     compileIndexes();
@@ -507,28 +507,6 @@ void compileExpression(void) {
     eat(SB_MINUS);
     compileExpression2();
     break;
-  case TK_CHAR:
-    eat(TK_CHAR);
-    break;
-  case TK_STRING:
-    eat(TK_STRING);
-    break;
-  default:
-    compileExpression2();
-  }
-  assert("Expression parsed");
-}  
-void compileExpression9(void) {
-  assert("Parsing an expression");
-  switch (lookAhead->tokenType) {
-  case SB_PLUS:
-    eat(SB_PLUS);
-    compileExpression2();
-    break;
-  case SB_MINUS:
-    eat(SB_MINUS);
-    compileExpression2();
-    break;
   default:
     compileExpression2();
   }
@@ -581,9 +559,9 @@ void compileFactor(void) {
   case TK_NUMBER:
     eat(TK_NUMBER);
     break;
-  // case TK_CHAR:
-  //   eat(TK_CHAR);
-  //   break;
+  case TK_CHAR:
+    eat(TK_CHAR);
+    break;
   case TK_IDENT:
     eat(TK_IDENT);
     switch (lookAhead->tokenType) {

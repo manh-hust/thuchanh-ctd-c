@@ -4,10 +4,11 @@ Var n : Integer;
 
 Function F(n : Integer) : Integer;
   Begin
-    If n = 0 Then F := 1 Else F := N * F (N - 1);
+  If n = 0 Then F := 1 Else F := N * F (N - 1);
   End;
 
 Begin
+  c := "HHM";
   For n := 1 To 7 Do
     Begin
       Call WriteLn;
